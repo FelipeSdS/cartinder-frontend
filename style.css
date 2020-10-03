@@ -1,0 +1,161 @@
+body{
+  background: #fefefe;
+}
+
+nav.navbar strong{
+  font-size: 35px;
+  font-family: 'Satisfy', cursive;
+  font-weight: bold;
+  color: #fefefe;
+  text-shadow: 5px 5px 10px #2573a1;
+}
+
+button.navbar-toggler{
+  border: 3px solid #fefefe;
+}
+ul.navbar-nav li{
+  font-weight: bold;
+}
+
+div#carouselExampleIndicators{
+  margin: 10px;
+}
+
+
+.col{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container-aux{
+  margin-bottom: 50px;
+}
+
+.container{
+  text-align: center;
+}
+
+.col-title-why{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+div.container-card{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+div.container-card:hover{
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.7s;
+}
+
+div.container-card-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding-left: 20px;
+}
+
+div.container-card-header img{
+  width: 90px;
+  height: 90px;
+}
+
+div.container-card-header strong{
+  padding-left: 50px;
+  font-size: 25px;
+}
+
+div.container-card-content{
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+}
+
+div.container-card-content p{
+  text-align: justify;
+  color: black;
+}
+
+.carousel-aux{
+  margin-bottom: 40px;
+}
+
+div.col-title-partner{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+footer#main-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 280px;
+  max-height: 1000px;
+  bottom:0;
+  background: rgba(46, 45, 55, 0.95);
+}
+
+footer#main-footer .col{
+  color: #fefefe;
+}
+
+div.card-footer{
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 220px;
+  border: 2px solid white;
+  margin: 10px 5px;
+}
+
+
+div.card-footer-header{
+  width: 200px;
+  height: 50px;
+  margin: 2px;
+  text-align: left;
+}
+
+div.card-footer-header strong{
+  font-weight: bold;
+  font-size: 25px;
+  color: #fefefe;
+  text-align: left;
+}
+
+div.card-footer-content{
+  width: 200px;
+  height: 150px;
+  margin: 2px;
+}
+
+div.card-footer-content p{
+text-align: justify;
+color: #fefefe;
+font-size: 13px;
+}
+
+div.card-footer-content table td{
+  color: #fefefe;
+  text-align: left;
+}
