@@ -40,7 +40,7 @@ div#carouselExampleIndicators{
 
 .col-title-why{
   font-family: 'Julius Sans One', sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 30px;
 }
@@ -51,8 +51,6 @@ div.container-card{
   flex-direction: column;
   border: 1px solid black;
   border-radius: 10px;
-  width: 250px;
-  height: 250px;
   margin-bottom: 40px;
   padding: 10px;
 }
@@ -63,17 +61,18 @@ div.container-card:hover{
 }
 
 div.container-card-header{
+  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  height: 100px;
   padding-left: 20px;
+  margin-bottom: 2px;
 }
 
 div.container-card-header img{
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
 }
 
 div.container-card-header strong{
@@ -82,14 +81,14 @@ div.container-card-header strong{
 }
 
 div.container-card-content{
+  flex: 1;
   width: 100%;
-  height: 100px;
-  padding: 5px;
 }
 
 div.container-card-content p{
   text-align: justify;
   color: black;
+  font-size: 15px;
 }
 
 .carousel-aux{
@@ -98,41 +97,34 @@ div.container-card-content p{
 
 div.col-title-partner{
   font-family: 'Julius Sans One', sans-serif;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 footer#main-footer{
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 280px;
-  max-height: 1000px;
+  justify-content: center;
   bottom:0;
   background: rgba(46, 45, 55, 0.95);
-}
-
-footer#main-footer .col{
-  color: #fefefe;
+  padding: 5px;
 }
 
 div.card-footer{
+  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: 220px;
   border: 2px solid white;
-  margin: 10px 5px;
+  margin: 10px;
 }
 
-
 div.card-footer-header{
-  width: 200px;
+  width: 100%;
   height: 50px;
-  margin: 2px;
   text-align: left;
 }
 
@@ -144,9 +136,8 @@ div.card-footer-header strong{
 }
 
 div.card-footer-content{
-  width: 200px;
+  width: 100%;
   height: 150px;
-  margin: 2px;
 }
 
 div.card-footer-content p{
@@ -158,4 +149,13 @@ font-size: 13px;
 div.card-footer-content table td{
   color: #fefefe;
   text-align: left;
+}
+
+div.copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(46, 45, 55, 0.95);
+  padding: 10px;
+  color: #fefefe;
 }
