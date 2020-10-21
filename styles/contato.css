@@ -1,0 +1,75 @@
+Body{
+margin: 0;
+padding: 0;
+
+}
+
+form{ 
+    font-size: 20px;
+    background: #212529;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 0 10px 10px 10px;
+    border-radius: 50px;
+    
+}
+h1{
+    padding: 15px;
+    color:white;
+    font-size: 25px;
+    text-align: center;
+    
+
+}
+
+input, textarea{
+    width: 470px;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.enviar button{
+    background: #006699;
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    border: 1px solid;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 18px;
+
+}
+
+.enviar input:hover{
+    background: #078;
+}
+textarea{
+    width: 470px;
+    height: 120px;
+    line-height: 20px;
+}
+p.enviar{
+    text-align: center;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #212529;
+    color: white;
+    text-align: center;
+  }
+  
+  @media (max-width: 414px) {
+   input, textarea{
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+  }

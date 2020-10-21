@@ -1,0 +1,134 @@
+body{
+  background: #fefefe;
+}
+
+nav.navbar strong{
+  font-size: 35px;
+  font-family: 'Satisfy', cursive;
+  font-weight: bold;
+  color: #fefefe;
+  text-shadow: 5px 5px 10px #2573a1;
+}
+
+button.navbar-toggler{
+  border: 3px solid #fefefe;
+}
+
+ul.navbar-nav li{
+  font-weight: bold;
+}
+
+
+div.container-filtro{
+  background: #343a40;
+  box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 10px;
+}
+
+div.container-filtro label{
+  font-weight: bold;
+  color: #fefefe;
+}
+
+div.container-filtro button{
+  width: 100%;
+  height: 35px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.7s;
+}
+
+div.container-filtro button:hover{
+  background: #343a40;
+  border: 2px solid #fefefe;
+  color: #fefefe;
+}
+
+
+div.card{
+  margin: 20px 20px;
+  padding: 10px;
+}
+
+div.col-md-4 img{
+  margin: 20px 0px;
+}
+
+div.card-body{
+  margin: 10px 30px;
+}
+
+div.card-body{
+  color: #fefefe;
+}
+
+a.card-link{
+  width: 150px;
+  height: 150px;
+  padding: 7px;
+  background: #fefefe;
+  border-radius: 5px;
+  color: #343a40;
+  font-weight: bold;
+}
+
+footer#main-footer{
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  bottom:0;
+  background: #343a40!important;
+  padding: 5px;
+}
+
+div.card-footer{
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border: 2px solid white;
+  margin: 10px;
+}
+
+div.card-footer-header{
+  width: 100%;
+  height: 50px;
+  text-align: left;
+}
+
+div.card-footer-header strong{
+  font-weight: bold;
+  font-size: 25px;
+  color: #fefefe;
+  text-align: left;
+}
+
+div.card-footer-content{
+  width: 100%;
+  height: 150px;
+}
+
+div.card-footer-content p{
+text-align: justify;
+color: #fefefe;
+font-size: 13px;
+}
+
+div.card-footer-content table td{
+  color: #fefefe;
+  text-align: left;
+}
+
+div.copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #343a40!important;
+  padding: 10px;
+  color: #fefefe;
+}

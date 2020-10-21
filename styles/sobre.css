@@ -1,0 +1,64 @@
+body{
+  background: #fefefe;
+}
+
+nav.navbar strong{
+  font-size: 35px;
+  font-family: 'Satisfy', cursive;
+  font-weight: bold;
+  color: #fefefe;
+  text-shadow: 5px 5px 10px #2573a1;
+}
+
+button.navbar-toggler{
+  border: 3px solid #2e2e2e;
+}
+ul.navbar-nav li{
+  font-weight: bold;
+}
+
+div#carouselExampleIndicators{
+  margin: 10px;
+  height: 100px;
+}
+
+h1{
+  text-align: center;
+  right: 500px;
+  height: 80px;
+  margin: 30px;
+  font-family: 'Satisfy', cursive;
+}
+h2{
+  text-align: center;
+  right: 500px;
+  height: auto;
+  margin: 30px;
+  
+}
+h3{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Satisfy', cursive;
+  height: 10px;
+}
+carousel-inner{
+    margin-top: 10px;
+    max-width:20px;
+    max-height:20px;
+    float: center;
+    align-items: center;
+  }
+  .carousel-inner img{
+    max-height:500px;
+    align-items: center;
+    margin-top: 10px;
+    height: auto;
+    right: 100px;
+    
+  }
+
+  .navbar-expand-lg {
+    height: 130px;
+  }
