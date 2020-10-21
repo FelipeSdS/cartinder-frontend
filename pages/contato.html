@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Icone Page Losgo-->
+    <link rel="shortcut icon" href="/images/home/carTinderLogo.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- CSS Próprio-->
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/contato.css">
+
+    <!--Fonts Google-->
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+  
+    <title>Contato</title>
+   
+   <script language="javascript" type="text/javascript">
+      function validar() {
+      var nome = form1.nome.value;
+      var email = form1.email.value;
+      var telefone = form1.telefone.value;
+      var mensagem = form1.mensagem.value;
+      
+      if (!nome) {
+      alert('Preencha o campo com seu nome');
+      form1.nome.focus();
+      return false;
+      }
+      
+      if (!email) {
+      alert('Preencha o campo com seu email');
+      form1.email.focus();
+      return false;
+      }
+      
+      if (!telefone) {
+      alert('Preencha o campo com o seu telefone');
+      form1.telefone.focus();
+      return false;
+      }
+      
+      if (!mensagem) {
+      alert('Digite sua mensagem');
+      return false;
+      }
+      
+      else {
+          return form1.mensagem.focus();
+      }
+      
+      if (nome.length < 5) {
+      alert('Digite seu nome completo');
+      form1.nome.focus();
+      return false;
+      }
+      }
+      
+      </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="home.html">
+        <img src="/images/home/carTinderLogo.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
+      </a>
+      <strong>CarTinder</strong>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <nav class="navbar-inline my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="catalogo.html">Catalogo</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="comprarFiltro.html">Comprar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="venda.html">Vender</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre.html">Quem somos</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </nav>
+
+    <form name="form1">  
+      <h1> ALGUMA DÚVIDA OU SUGESTÃO?</h1>
+      
+      <p class="name">
+          <input type="text" name="nome" id="inputNome" placeholder="Informe seu nome" required>
+      </p>
+      
+      <p class="email">
+          <input type="text" name="email" id="inputEmail" placeholder="Informe seu e-mail" required>
+      </p>
+      
+      <p class="numero">
+          <input type="numero" name="telefone" id="inputTelefone" placeholder="Informe seu numero" required>
+      </p>
+      
+      <p class="mensagem">
+          <textarea name="mensagem" id="inputMensagem" placeholder="Deixe sua mensagem"></textarea>
+      </p>
+      
+          <p class="enviar">
+            <button  onclick="enviaEmailContato()">Enviar</button>
+          </p> 
+      </form>
+
+      <footer id="main-footer">
+        <div class="card-footer">
+          <div class="card-footer-header">
+            <strong>A CarTinder</strong>
+          </div>
+          <div class="card-footer-content">
+            <p>Fundanda no ano de 2020, somos dedicados inteiramente a propagada dos nos anúncios
+            e no bom relacionamento com os clientes, sempre fazendo novas parcerias para
+            melhores preços e trazer muitas novidades do mercado.
+            </p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-header">
+            <strong>Contato</strong>
+          </div>
+          <div class="card-footer-content">
+            <table>
+              <tr>
+                <td>Email:</td>
+              </tr>
+              <tr>
+                <td>equipecartinder@gmail.com</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </footer>
+      <div class="copyright">
+        <p>Copyright CarTinder  © 2020 | Todos os direitos reservados</p>
+      </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="/service/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt=BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Icone Page Losgo-->
+    <link rel="shortcut icon" href="/images/home/carTinderLogo.png">
+
+    <title>Catálogo</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- CSS Próprio-->
+    <link rel="stylesheet"  type="text/css" href="/styles/catalogo.css">
+    <link rel="stylesheet" href="/styles/style.css">
+
+
+    <!-- Fontes-->
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="Home.html">
+          <img src="/images/home/carTinderLogo.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
+        </a>
+        <strong>CarTinder</strong>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+          <div class="d-flex flex-row-reverse bd-highlight">
+          <nav class="navbar-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="catalogo.html">Catalogo</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="comprarFiltro.html">Comprar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="venda.html">Vender</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contato.html">Contato</a>
+              </li>
+             <li class="nav-item">
+              <a class="nav-link" href="sobre.html">Quem somos</a>
+            </li>
+            </ul>
+          </nav>
+        </div>
+        </div>
+      </nav>
+
+    <h1 id="nome"><center><strong>Conheça o nosso catálogo de Marcas</strong></center></h1>
+    <h4><center><strong><i>Confira abaixo as marcas com as quais trabalhos, 
+      com certeza você irá encontrar uma seja a sua cara!</i></strong></center></h4>
+
+    <br>
+
+    <div class="bs-example">
+      <div id="myCarousel" class="carousel slide" data-interval="6500" data-ride="carousel">
+        <!-- Carousel indicators -->
+          <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>   
+         <!-- Carousel items -->
+          <div class="carousel-inner">
+              <div class="active item carousel-fade">
+                  <div class="carousel-caption">
+                    <img class="d-block w-100" src="/images/catalogo/logo1.png" alt="Primero slide">
+                    <br>  
+                    <p>Para mais informações clique abaixo</p>
+                    <button class="button-acesse" onclick="chamaTelaComprarFiltro('Honda')">Acesse</button>
+                  </div>
+              </div>
+              <div class="item carousel-fade">
+                  <div class="carousel-caption">
+                    <img class="d-block w-100" src="/images/catalogo/logo2.png" alt="Segundo slide">
+                    <p>Para mais informações clique abaixo</p>
+                    <button class="button-acesse" onclick="chamaTelaComprarFiltro('BMW')">Acesse</button>
+                  </div>
+              </div>
+              <div class="item carousel-fade">
+                  <div class="carousel-caption">
+                    <img class="d-block w-100" src="/images/catalogo/logo3.png" alt="Terceiro slide">
+                    <br>
+                    <p>Para mais informações clique abaixo</p>
+                    <button class="button-acesse" onclick="chamaTelaComprarFiltro('Ford')">Acesse</button>
+                  </div>
+              </div>
+          </div>
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+      </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <footer id="main-footer">
+    <div class="card-footer">
+      <div class="card-footer-header">
+        <strong>A CarTinder</strong>
+      </div>
+      <div class="card-footer-content">
+        <p>Fundanda no ano de 2020, somos dedicados inteiramente a propagada dos nos anúncios
+        e no bom relacionamento com os clientes, sempre fazendo novas parcerias para
+        melhores preços e trazer muitas novidades do mercado.
+        </p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-footer-header">
+        <strong>Contato</strong>
+      </div>
+      <div class="card-footer-content">
+        <table>
+          <tr>
+            <td>Email:</td>
+          </tr>
+          <tr>
+            <td>equipecartinder@gmail.com</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</footer>
+  <div class="copyright">
+    <p style="color: #fefefe;">Copyright CarTinder  © 2020 | Todos os direitos reservados</p>
+  </div>
+
+
+    <script>
+
+        $('.carousel').carousel()
+        interval: 3000
+
+    </script>
+
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+     <script src="/service/script.js"></script>
+
+
+</body>
+</html>
