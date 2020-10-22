@@ -4,15 +4,24 @@ padding: 0;
 
 }
 
-form{ 
-    font-size: 20px;
+form.contato-style{
+    flex-shrink: 1;
+    width: 500px;
     background: #212529;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 0 10px 10px 10px;
-    border-radius: 50px;
-    
+    padding: 20px;
+    margin: 20px;
+    color: #fefefe;
+    border-radius: 10px;
 }
+
+form.contato-style label{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+
 h1{
     padding: 15px;
     color:white;
@@ -41,7 +50,6 @@ input, textarea{
     border: 1px solid #eee;
     border-radius: 6px;
     font-size: 18px;
-
 }
 
 .enviar input:hover{

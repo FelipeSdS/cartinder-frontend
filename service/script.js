@@ -249,15 +249,12 @@ function criaPainelTelaComprar(data){
 
     var objectEmail = {
       nome : nome = document.getElementById('inputNome').value,
-      email : email = document.getElementById('inputEmail').value,
+      duvidaEmail : duvidaEmail = document.getElementById('inputEmail').value,
       telefone : telefone = document.getElementById('inputTelefone').value,
       mensagem : mensagem = document.getElementById('inputMensagem').value,
     }
-
-    if(objectEmail != null) 
-        enviarEmailContatoAPI(JSON.stringify(objectEmail));
-    else
-      alert('Erro ao Enviar o email');
+    
+    enviarEmailContatoAPI(JSON.stringify(objectEmail));
     
   }
 
