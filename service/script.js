@@ -264,6 +264,24 @@ function criaPainelTelaComprar(data){
       contentType: "application/json",
       url: "https://cartinder-backend.herokuapp.com/contato/duvidaSugestao",
       data: data,
-    })
+      beforeSend: function () {
+        //Aqui adicionas o loader
+        $("#divCorpo").html('' + 
+        '<div class="carregando">' + 
+           '<div class="text-center">' +
+              '<div class="spinner-border text-primary" role="status">' + 
+              '</div>' +
+               '<h1>Enviando......</h1>' + 
+            '</div>' + 
+        '</div>'
+        );
+      },         
+      success: function() {
+        alert('Enviado com sucesso.');
+      },
+      error: function() {
+        console.log("Erro ao enviar o e-mail.");
+      }   
+    });
 }
 
