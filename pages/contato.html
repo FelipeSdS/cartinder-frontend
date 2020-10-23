@@ -25,7 +25,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="home.html">
+      <a class="navbar-brand" href="/home.html">
         <img src="/images/home/carTinderLogo.png" width="100" height="100" class="d-inline-block align-top" alt="" loading="lazy">
       </a>
       <strong>CarTinder</strong>
@@ -89,15 +89,35 @@
       </div>
     </div>
 
+    <!--Modal Email Sucesso-->
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+ 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="buttonClose">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <footer id="main-footer">
         <div class="card-footer">
           <div class="card-footer-header">
             <strong>A CarTinder</strong>
           </div>
           <div class="card-footer-content">
-            <p>Fundanda no ano de 2020, somos dedicados inteiramente a propagada dos nos anúncios
-            e no bom relacionamento com os clientes, sempre fazendo novas parcerias para
-            melhores preços e trazer muitas novidades do mercado.
+            <p>Fundanda no ano de 2020, somos dedicados inteiramente a propaganda dos nossos anúncios
+              e no bom relacionamento com os clientes, sempre fazendo novas parcerias para
+              melhores preços e trazer muitas novidades do mercado.
             </p>
           </div>
         </div>
@@ -132,7 +152,10 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="/service/script.js"></script>
     <script>
-      $("#inputTelefone").mask("(00) 0000-0000");
+      $("#inputTelefone").mask("(00) 00000-0000");
+      $('#buttonClose').click( function(){
+        document.location.reload(true);
+      });
     </script>
   </body>
 </html>

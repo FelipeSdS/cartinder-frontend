@@ -345,11 +345,16 @@ function validaCamposEmailContato(data){
       },         
       success: function() {
         $("#divCorpo").hide();
-        alert('Enviado com sucesso.');
-        document.location.reload(true);
+        $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
+        $('.modal-body').html('<p>Você recebera um email de confirmação.</p>')
+        $('.modal').modal('show');
       },
       error: function() {
-        alert("Erro ao enviar o e-mail.");
+        $("#divCorpo").hide();
+        $('.modal-header').html('<h5 class="modal-title">Erro ao enviar o email.</h5>')
+        $('.modal-body').html('<p>Por favor contante a nossa equipe diretamente.</p>' + 
+                              '<p style="font-weight: bold;">Email: equipecartinder@gmail.com</p>')
+        $('.modal').modal('show');
       }   
     });
 }
