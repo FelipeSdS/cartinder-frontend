@@ -40,62 +40,97 @@ function verificaParam(){
 }
 
 function buscaAnuncioPorId(id){
-  var ajax = new XMLHttpRequest();
-
-  ajax.open("GET","https://cartinder-backend.herokuapp.com/anuncio/id?param=" + id);
-
-  ajax.send();
-
-  ajax.onreadystatechange = function(){
-    if(ajax.readyState == 4 &&  ajax.status == 200){
-       
-          var dados = JSON.parse(ajax.responseText);
-          criaPainelTelaComprar(dados);       
-    }
-  }
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/anuncio/id?param=" + id,
+    beforeSend: function () {
+      //Aqui adicionas o loader
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Carregando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function(data) {
+     $("#divCorpo").hide();
+      criaPainelTelaComprar(data);
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('#content-notfound').html('' + 
+      '<img src="/images/notFound.jpg">' + 
+      '<p>Nenhum carro foi encontrado.</p>'
+    );
+    }   
+  });
 }
 
 
 function buscaAnuncioPorMarca(marca){
-  var ajax = new XMLHttpRequest();
-
-  ajax.open("GET","https://cartinder-backend.herokuapp.com/anuncio/marca?param=" + marca);
-
-  ajax.send();
-
-  ajax.onreadystatechange = function(){
-    if(ajax.readyState == 4 &&  ajax.status == 200){
-          var dados = new Array();
-          var dados = JSON.parse(ajax.responseText);
-
-    
-        for(var i = 0; i < dados.length; i++){
-          console.log(dados[i].modelo);
-          console.log(dados[i]);
-        }
-        criaAnuncioTelaCompra(dados);
-    }
-  }
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/anuncio/marca?param=" + marca,
+    beforeSend: function () {
+      //Aqui adicionas o loader
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Carregando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function(data) {
+     $("#divCorpo").hide();
+      criaAnuncioTelaCompra(data);
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('#content-notfound').html('' + 
+      '<img src="/images/notFound.jpg">' + 
+      '<p>Nenhum carro foi encontrado.</p>'
+    );
+    }   
+  });
 }
 
 function buscaTodosAnuncios(){
-  var ajax = new XMLHttpRequest();
-  //var buscaTodosAnuncios = ${BUSCA_TODOS_ANUNCIOS}
-  ajax.open("GET","https://cartinder-backend.herokuapp.com/anuncio");
-
-  ajax.send();
-
-  ajax.onreadystatechange = function(){
-    if(ajax.readyState == 4 &&  ajax.status == 200){
-          var dados = new Array();
-          var dados = JSON.parse(ajax.responseText);  
-        for(var i = 0; i < dados.length; i++){
-          console.log(dados[i].modelo);
-          console.log(dados[i]);
-        }
-        criaAnuncioTelaCompra(dados);
-    }
-  }
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/anuncio",
+    beforeSend: function () {
+      //Aqui adicionas o loader
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Carregando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function(data) {
+     $("#divCorpo").hide();
+      criaAnuncioTelaCompra(data);
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('#content-notfound').html('' + 
+      '<img src="/images/notFound.jpg">' + 
+      '<p>Nenhum carro foi encontrado.</p>'
+    );
+    }   
+  });
 }
 
 function criaAnuncioTelaCompra(data){
@@ -245,7 +280,7 @@ function criaPainelTelaComprar(data){
   '</div> '  
 }
 
-  function enviaEmailContato(){
+function enviaEmailContato(){
 
     var objectEmail = {
       nome : nome = document.getElementById('inputNome').value,
@@ -253,10 +288,42 @@ function criaPainelTelaComprar(data){
       telefone : telefone = document.getElementById('inputTelefone').value,
       mensagem : mensagem = document.getElementById('inputMensagem').value,
     }
-    
-    enviarEmailContatoAPI(JSON.stringify(objectEmail));
-    
+
+    if(validaCamposEmailContato(objectEmail) == true){
+      enviarEmailContatoAPI(JSON.stringify(objectEmail));
+    }   
+}
+
+function validaCamposEmailContato(data){
+  var inputNome = document.getElementById('inputNome');
+  var inputEmail = document.getElementById('inputEmail');
+  var inputTelefone = document.getElementById('inputTelefone');
+
+  if(data.nome == null || data.nome == ""){
+    alert("Preencha o campo com seu Nome.");
+    inputNome.className = "form-control is-invalid";
+    return false;
   }
+  else{
+    inputNome.className = "form-control is-valid";
+  }
+  if(data.duvidaEmail == null || data.duvidaEmail == ""){
+    alert("Preencha o campo com seu Email.");
+    inputEmail.className = "form-control is-invalid";
+    return false;
+  }else{
+    inputEmail.className = "form-control is-valid";
+  }
+  if(data.telefone == null || data.telefone == ""){
+    alert("Preencha o campo com seu Telefone.");
+    inputTelefone.className = "form-control is-invalid";
+    return false;
+  }else{
+    inputTelefone.className = "form-control is-valid";
+  }
+
+  return true;
+}
 
   function enviarEmailContatoAPI(data){
     $.ajax({
@@ -277,11 +344,14 @@ function criaPainelTelaComprar(data){
         );
       },         
       success: function() {
+        $("#divCorpo").hide();
         alert('Enviado com sucesso.');
+        document.location.reload(true);
       },
       error: function() {
-        console.log("Erro ao enviar o e-mail.");
+        alert("Erro ao enviar o e-mail.");
       }   
     });
 }
+
 

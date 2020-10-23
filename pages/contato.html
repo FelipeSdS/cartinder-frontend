@@ -58,32 +58,6 @@
       </div>
     </nav>
 
-    <!--
-    <form name="form1">  
-      <h1> ALGUMA DÚVIDA OU SUGESTÃO?</h1>
-      
-      <p class="name">
-          <input type="text" name="nome" id="inputNome" placeholder="Informe seu nome" required>
-      </p>
-      
-      <p class="email">
-          <input type="text" name="email" id="inputEmail" placeholder="Informe seu e-mail" required>
-      </p>
-      
-      <p class="numero">
-          <input type="numero" name="telefone" id="inputTelefone" placeholder="Informe seu numero" required>
-      </p>
-      
-      <p class="mensagem">
-          <textarea name="mensagem" id="inputMensagem" placeholder="Deixe sua mensagem"></textarea>
-      </p>
-      
-          <p class="enviar">
-            <button  onclick="enviaEmailContato()">Enviar</button>
-          </p> 
-      </form>
-    -->
-
     <div id="divCorpo">
 
     </div>
@@ -91,14 +65,15 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form class="contato-style">
+          <form class="contato-style" onsubmit="return false">
+            <h1>Alguma dúvida ou sugestão?</h1>
             <div class="form-group">
               <label>Nome</label>
               <input type="text" class="form-control" id="inputNome">
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" class="form-control" id="inputEmail">
+              <input type="text" class="form-control" id="inputEmail">
             </div>
             <div class="form-group">
               <label>Telefone</label>
