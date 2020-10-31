@@ -145,7 +145,7 @@ function criaAnuncioTelaCompra(data){
     var cardCarroColMd8 = document.createElement('div');
     var cardCarroBody = document.createElement('div');
     var cardCarroImg = document.createElement('img');
-    var carro = "carroBMW.jpg";
+    var cardCarroFoto = data[i].foto;
 
     //Aplicas o CSS
     cardCarroMbDark.className = "card mb-3 bg-dark";
@@ -154,9 +154,9 @@ function criaAnuncioTelaCompra(data){
     cardCarroColMd8.className = "col-md-8";
     cardCarroBody.className = "card-body";
     cardCarroImg.className = "card-img"
-
-
-    cardCarroImg.src = "/images/home/"+carro;
+0
+    console.log(cardCarroFoto);
+    cardCarroImg.src = cardCarroFoto;
     cardCarroBody.innerHTML = '<h5 class="card-title">' + data[i].modelo +  '</h5>' +
     '<p class="cardt-text"><strong>Ano:</strong> ' + data[i].ano + '</p>' +
     '<p class="cardt-text"><strong>Quilometragem:</strong> ' + data[i].quilometragem + 'km</p>' +
