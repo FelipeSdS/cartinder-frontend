@@ -28,14 +28,18 @@ function verificaParam(){
           buscaAnuncioPorId(paramValue);
           console.log(paramValue);
       }
-      else{
-          buscaAnuncioPorMarca(paramValue)
+      else if(paramValue == "all"){
+          buscaTodosAnuncios();
           console.log(paramValue);
       }
-
-  }else{
-    buscaTodosAnuncios();
-    console.log(paramValue);
+      /*else if(paramValue == "filtro"){
+        buscaAnunciosFiltros();
+        console.log(paramValue);
+      }*/
+      else{
+        buscaAnuncioPorMarca(paramValue);
+        console.log(paramValue);
+      }
   }
 }
 
@@ -133,9 +137,56 @@ function buscaTodosAnuncios(){
   });
 }
 
+function buscaAnunciosFiltros(){
+  var filtros = {
+    marca : document.getElementById('inputSelectMarca').value,
+    ano: document.getElementById('inputSelectAno').value
+  }
+  console.log(filtros)
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "http://localhost:8080/anuncio/filtros",
+    data: JSON.stringify(filtros),
+    beforeSend: function () {
+      //Aqui adicionas o loader
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Carregando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function(data) {
+      $("#divCorpo").hide();
+      criaAnuncioTelaCompra(data);
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('#content-notfound').html('' + 
+      '<img src="/images/notFound.jpg">' + 
+      '<p>Nenhum carro foi encontrado.</p>'
+    );
+    }  
+  });
+}
+
 function criaAnuncioTelaCompra(data){
   
   var divContent = document.getElementById('card-carro')
+  var selectAno = document.getElementById('inputSelectAno');
+
+  var ano = 1990
+  for(var i = 0; i < 33; i++){
+      var optionSelectAno =document.createElement('option');
+      optionSelectAno.value = ano + i;
+      optionSelectAno.text = ano + i;
+      selectAno.add( optionSelectAno, selectAno.options[i]);
+  }
+
   for(var i = 0; i < data.length; i++){
 
     //Cria Elemento HTML
@@ -153,8 +204,8 @@ function criaAnuncioTelaCompra(data){
     cardCarroColMd4.className = "col-md-4";
     cardCarroColMd8.className = "col-md-8";
     cardCarroBody.className = "card-body";
-    cardCarroImg.className = "card-img"
-0
+    cardCarroImg.className = "card-img";
+
     console.log(cardCarroFoto);
     cardCarroImg.src = cardCarroFoto;
     cardCarroBody.innerHTML = '<h5 class="card-title">' + data[i].modelo +  '</h5>' +
@@ -314,7 +365,7 @@ function validaCamposEmailContato(data){
   }else{
     inputEmail.className = "form-control is-valid";
   }
-  if(data.telefone == null || data.telefone == ""){
+  if(data.telefone == null || data.telefone == "" || data.telefone == "(00) 00000-0000"){
     alert("Preencha o campo com seu Telefone.");
     inputTelefone.className = "form-control is-invalid";
     return false;

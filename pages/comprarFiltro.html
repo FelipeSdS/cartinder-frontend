@@ -42,7 +42,7 @@
               <a class="nav-link" href="catalogo.html">Catalogo</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="comprarFiltro.html">Comprar</a>
+              <a class="nav-link" href="comprarFiltro.html?param=all">Comprar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="venda.html">Vender</a>
@@ -70,25 +70,26 @@
             <div class="container-filtro">
               <div class="row">
                 <div class="col">           
-                    <label>Modelo</label>
-                    <select class="custom-select" id="inputModelo">
-                      <option value="1">BMW</option>
-                      <option value="2">Ford</option>
-                      <option value="3">Honda</option>
+                    <label>Marca</label>
+                    <select class="custom-select" id="inputSelectMarca">
+                      <option value="0"></option>
+                      <option value="BMW">BMW</option>
+                      <option value="Ford">Ford</option>
+                      <option value="Honda">Honda</option>
                     </select>      
                 </div>
                 <div class="col">
-                    <label>Marca</label>
-                    <select class="custom-select" id="inputMarca">
-                      <option selected>teste</option>
-                      <option value="1">teste</option>
-                      <option value="2">teste</option>
-                      <option value="3">teste</option>
+                    <label>Ano</label>
+                    <select class="custom-select" id="inputSelectAno">
+                      <option value=""></option>
+
                     </select>
                   
                 </div>
               </div>
-              <button>Filtrar</button>
+              <a href="comprarFiltro.html">
+                <button onclick="buscaAnunciosFiltros()" 564879-=> Filtrar</button>
+              </a>
             </div>
           
         </div>
@@ -147,8 +148,5 @@
     <script>
       verificaParam();
     </script>
-
-
-
   </body>
 </html>
