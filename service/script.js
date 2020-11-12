@@ -146,7 +146,7 @@ function buscaAnunciosFiltros(){
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "http://localhost:8080/anuncio/filtros",
+    url: "https://cartinder-backend.herokuapp.com/contato/anuncio/filtros",
     data: JSON.stringify(filtros),
     beforeSend: function () {
       //Aqui adicionas o loader
@@ -410,4 +410,83 @@ function validaCamposEmailContato(data){
     });
 }
 
+function masksValuesTelaVenda(){
+  var selectAno = document.getElementById('inputAno');
 
+  var ano = 1990
+  for(var i = 0; i < 33; i++){
+      var optionSelectAno =document.createElement('option');
+      optionSelectAno.value = ano + i;
+      optionSelectAno.text = ano + i;
+      selectAno.add( optionSelectAno, selectAno.options[i]);
+  }
+
+  $("#inputTelefone").mask("(00) 00000-0000");
+  $('#inputPotenciaMotor').mask('0.0');
+  $('#inputPreco').mask('#.##0,00', {reverse: true});
+  $('.form-hidden').hide();
+  $('#buttonAnimation').click(function(){    
+    if($(this).text() == "Enviar"){
+      enviarEmailCadastroAnuncio();
+    }else{
+      $(this).text('Enviar')
+      $('.form-hidden').show();
+      window.scrollTo(0, 0);
+    }
+  });
+  $('#buttonClose').click( function(){
+    document.location.reload(true);
+  });
+}
+
+function enviarEmailCadastroAnuncio(){
+  var objectEmail = {
+    nome:document.getElementById('inputNome').value,
+    email:document.getElementById('inputEmail').value,  
+    celular:document.getElementById('inputTelefone').value,
+    preco:document.getElementById('inputPreco').value,  
+    modelo:document.getElementById('inputModelo').value,  
+    marca:document.getElementById('inputMarca').value,  
+    ano:document.getElementById('inputAno').value,
+    quilometragem:document.getElementById('inputQuilometragem').value, 
+    potenciaMotor:document.getElementById('inputPotenciaMotor').value,  
+    combustivel:document.getElementById('inputCombustivel').value,
+    cambio:document.getElementById('inputCambio').value,
+    direcao:document.getElementById('inputDirecao').value,
+    cor:document.getElementById('inputCor').value,
+    portas:document.getElementById('inputPortas').value
+  }
+  console.log(objectEmail);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/contato/vender",
+    data: JSON.stringify(objectEmail),
+    beforeSend: function () {
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Enviando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function() {
+      $("#divCorpo").hide();
+      $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
+      $('.modal-body').html('<p>Olá, antes do seu anuncio ficar online em nossa plataforma irá passar por uma breve analise.</p>' + 
+      '<p>Muito breve um dos nossos vendedores entrara em contato com você para mais detalhes.' +
+      '<p>Desde já agradecemos o interesse .... <strong>Equipe CarTinder<strong></p>')
+      $('.modal').modal('show');
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('.modal-header').html('<h5 class="modal-title">Erro ao enviar o email.</h5>')
+      $('.modal-body').html('<p>Por favor contante a nossa equipe diretamente.</p>' + 
+                            '<p style="font-weight: bold;">Email: equipecartinder@gmail.com</p>')
+      $('.modal').modal('show');
+    }   
+  });
+}
