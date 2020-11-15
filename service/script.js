@@ -94,7 +94,7 @@ function buscaAnuncioPorMarca(marca){
     },         
     success: function(data) {
      $("#divCorpo").hide();
-      criaAnuncioTelaCompra(data);
+     criaAnuncioTelaComprarFiltro(data);
     },
     error: function() {
       $("#divCorpo").hide();
@@ -125,7 +125,7 @@ function buscaTodosAnuncios(){
     },         
     success: function(data) {
      $("#divCorpo").hide();
-      criaAnuncioTelaCompra(data);
+     criaAnuncioTelaComprarFiltro(data);
     },
     error: function() {
       $("#divCorpo").hide();
@@ -162,7 +162,7 @@ function buscaAnunciosFiltros(){
     },         
     success: function(data) {
       $("#divCorpo").hide();
-      criaAnuncioTelaCompra(data);
+      criaAnuncioTelaComprarFiltro(data);
     },
     error: function() {
       $("#divCorpo").hide();
@@ -174,7 +174,7 @@ function buscaAnunciosFiltros(){
   });
 }
 
-function criaAnuncioTelaCompra(data){
+function criaAnuncioTelaComprarFiltro(data){
   
   var divContent = document.getElementById('card-carro')
   var selectAno = document.getElementById('inputSelectAno');
@@ -227,7 +227,30 @@ function criaAnuncioTelaCompra(data){
 }
 
 function criaPainelTelaComprar(data){
+  console.log(data);
   var divPanelCar = document.getElementById('panel-car');
+  var divContainerCarImage = document.getElementById('container-car-image');
+  divContainerCarImage.innerHTML = '' + 
+    '<div class="row">' +
+      '<div class="col">' +
+        '<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">' +
+          '<div class="carousel-inner">' +
+            '<div class="carousel-item active">' +
+              '<img src="' + data.foto + '" class="d-block w-100" alt="...">' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '<div class="row">' +
+    '<div class="col">' +
+      '<div class="panel-preco">' +
+        '<strong>Preço:' + data.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</strong>' +
+        '<button data-toggle="modal" data-target="#exampleModal">Tenho interesse</button>' +
+      '</div>' +
+    '</div>' +
+  '</div>'
+
   divPanelCar.innerHTML = ' '+ 
   //Marca
   '<div class="panel-car-topic">' + 
@@ -328,7 +351,9 @@ function criaPainelTelaComprar(data){
     '<div class="panel-car-topic-content"> ' +
       '<strong> ' + data.portas +'</strong> ' +
     '</div> ' + 
-  '</div> '  
+  '</div> ' + 
+  '<input type="hidden" value="' + data.idAnuncio + '" id="inputAnuncio">' 
+
 }
 
 function enviaEmailContato(){
@@ -427,6 +452,7 @@ function masksValuesTelaVenda(){
   $('.form-hidden').hide();
   $('#buttonAnimation').click(function(){    
     if($(this).text() == "Enviar"){
+      window.scrollTo(0, 0);
       enviarEmailCadastroAnuncio();
     }else{
       $(this).text('Enviar')
@@ -478,7 +504,59 @@ function enviarEmailCadastroAnuncio(){
       $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
       $('.modal-body').html('<p>Olá, antes do seu anuncio ficar online em nossa plataforma irá passar por uma breve analise.</p>' + 
       '<p>Muito breve um dos nossos vendedores entrara em contato com você para mais detalhes.' +
-      '<p>Desde já agradecemos o interesse .... <strong>Equipe CarTinder<strong></p>')
+      '<p>Desde já agradecemos o interesse.</p>' + 
+      '<p><strong>Equipe CarTinder<strong></p>')
+      $('.modal').modal('show');
+    },
+    error: function() {
+      $("#divCorpo").hide();
+      $('.modal-header').html('<h5 class="modal-title">Erro ao enviar o email.</h5>')
+      $('.modal-body').html('<p>Por favor contante a nossa equipe diretamente.</p>' + 
+                            '<p style="font-weight: bold;">Email: equipecartinder@gmail.com</p>')
+      $('.modal').modal('show');
+    }   
+  });
+}
+
+function enviarEmailInteresse(){
+
+  var objectEmail = {
+    idAnuncio:document.getElementById('inputAnuncio').value,
+    nome:document.getElementById('inputNome').value,
+    duvidaEmail:document.getElementById('inputEmail').value,  
+    telefone:document.getElementById('inputTelefone').value,
+    mensagem:document.getElementById('inputMensagem').value
+  }
+
+  if(validaCamposEmailContato(objectEmail) == true){
+    enviarEmailInteresseAPI(JSON.stringify(objectEmail));
+  }
+}
+
+function enviarEmailInteresseAPI(objectEmail){
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/contato/interesse",
+    data: objectEmail,
+    beforeSend: function () {
+      $("#divCorpo").html('' + 
+      '<div class="carregando">' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Enviando......</h1>' + 
+          '</div>' + 
+      '</div>'
+      );
+    },         
+    success: function() {
+      $("#divCorpo").hide();
+      $("#buttonEnviar").hide();
+      $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
+      $('.modal-body').html('<p>Olá, o responsavel pelo veiculo ira receber sua mensagem em breve ira entrar em contato.</p>' + 
+      '<p>Desde já agradecemos o interesse.</p>' + 
+      '<p><strong>Equipe CarTinder<strong></p>')
       $('.modal').modal('show');
     },
     error: function() {
