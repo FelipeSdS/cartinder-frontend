@@ -32,10 +32,10 @@ function verificaParam(){
           buscaTodosAnuncios();
           console.log(paramValue);
       }
-      /*else if(paramValue == "filtro"){
+      else if(paramValue == "filtro"){
         buscaAnunciosFiltros();
         console.log(paramValue);
-      }*/
+      }
       else{
         buscaAnuncioPorMarca(paramValue);
         console.log(paramValue);
@@ -137,16 +137,23 @@ function buscaTodosAnuncios(){
   });
 }
 
-function buscaAnunciosFiltros(){
+function buscaAnunciosFiltros(marca){
   var filtros = {
     marca : document.getElementById('inputSelectMarca').value,
     ano: document.getElementById('inputSelectAno').value
   }
-  console.log(filtros)
+
+  $('#card-carro').hide();
+  $('#content-notfound').html('' + 
+  '<img src="/images/notFound.jpg">' + 
+  '<p>Ops ... Funcionalidade não disponivel no momento :(</p>'
+  );
+  $('#card-carro').show();
+  /*
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "https://cartinder-backend.herokuapp.com/contato/anuncio/filtros",
+    url: "http://localhost:8080/anuncio/filtros",
     data: JSON.stringify(filtros),
     beforeSend: function () {
       //Aqui adicionas o loader
@@ -161,8 +168,10 @@ function buscaAnunciosFiltros(){
       );
     },         
     success: function(data) {
+      $('#card-carro').hide();
       $("#divCorpo").hide();
       criaAnuncioTelaComprarFiltro(data);
+      $('#card-carro').show();
     },
     error: function() {
       $("#divCorpo").hide();
@@ -171,7 +180,7 @@ function buscaAnunciosFiltros(){
       '<p>Nenhum carro foi encontrado.</p>'
     );
     }  
-  });
+  });*/
 }
 
 function criaAnuncioTelaComprarFiltro(data){
@@ -540,24 +549,25 @@ function enviarEmailInteresseAPI(objectEmail){
     url: "https://cartinder-backend.herokuapp.com/contato/interesse",
     data: objectEmail,
     beforeSend: function () {
-      $("#divCorpo").html('' + 
-      '<div class="carregando">' + 
+      $("#buttonEnviar").hide();
+      $("#buttonFechar").hide();
+      $(".modal-body").html('' + 
          '<div class="text-center">' +
             '<div class="spinner-border text-primary" role="status">' + 
             '</div>' +
              '<h1>Enviando......</h1>' + 
-          '</div>' + 
-      '</div>'
+          '</div>' 
       );
     },         
     success: function() {
       $("#divCorpo").hide();
       $("#buttonEnviar").hide();
       $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
-      $('.modal-body').html('<p>Olá, o responsavel pelo veiculo ira receber sua mensagem em breve ira entrar em contato.</p>' + 
+      $('.modal-body').html('<p>Olá o responsavel pelo veiculo ira receber sua mensagem, e em breve irá entrar em contato.</p>' + 
       '<p>Desde já agradecemos o interesse.</p>' + 
       '<p><strong>Equipe CarTinder<strong></p>')
       $('.modal').modal('show');
+      $("#buttonFechar").show();
     },
     error: function() {
       $("#divCorpo").hide();
