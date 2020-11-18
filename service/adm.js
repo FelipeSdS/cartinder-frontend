@@ -279,7 +279,11 @@ function cadastroAnuncioModal(){
       '<label>Identificador Cliente</label>' + 
       '<input type="number" class="form-control" id="inputCliente">' +
       '<label>Marca</label>' + 
-      '<input type="text" class="form-control" id="inputMarca">' +
+        '<select class="custom-select" id="inputMarca">' + 
+          '<option value="BMW">BMW</option>' + 
+          '<option value="Ford">Ford</option>' + 
+          '<option value="Honda">Honda</option>' +
+        '</select>' +  
       '<label>Modelo</label>' + 
       '<input type="text"  class="form-control" id="inputModelo">' +
       '<div class="row">' + 
