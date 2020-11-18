@@ -1,0 +1,101 @@
+body{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#tableData{
+  margin: 20px 0px;
+}
+
+#tableDataCliente{
+  margin: 20px 0px;
+}
+
+table.table tbody tr{
+  transition: 0.5s;
+}
+
+table.table tbody tr:hover{
+  background: #D3D2D2;
+  cursor: pointer;
+}
+
+img.content-editable{
+  width: 20px;
+  height: 20px;
+}
+
+form#formModalBody label{
+  margin-top: 15px;
+}
+
+.title-list{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+div.carregando{
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  border: #212529;
+  margin: auto auto;
+  position: absolute;
+  z-index: 9999;
+  background: #7d8083;
+}
+
+div.carregando h1{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fefefe;
+}
+
+div.cadastro{
+  flex-wrap: wrap;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+div.cadastro-container{
+  width: 330px;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  border-radius: 7px;
+  transition: 0.7s;
+}
+
+div.cadastro-container strong{
+  margin: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+div.cadastro-container img{
+  width: 100px;
+  height: 100px;
+  margin-left: 20px;
+}
+
+div.cadastro-container:hover{
+  cursor: pointer;
+  background: #7d8083;
+  color: #fefefe;
+}
+
+div.cadastro-container:hover img{
+  color: #fefefe;
+}
+
