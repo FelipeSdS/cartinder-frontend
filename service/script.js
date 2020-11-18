@@ -511,8 +511,8 @@ function enviarEmailCadastroAnuncio(){
     success: function() {
       $("#divCorpo").hide();
       $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
-      $('.modal-body').html('<p>Olá, antes do seu anuncio ficar online em nossa plataforma irá passar por uma breve analise.</p>' + 
-      '<p>Muito breve um dos nossos vendedores entrara em contato com você para mais detalhes.' +
+      $('.modal-body').html('<p>Olá antes do seu anuncio ficar online em nossa plataforma irá passar por uma analise.</p>' + 
+      '<p>Em breve um dos nossos vendedores entrara em contato para mais detalhes.' +
       '<p>Desde já agradecemos o interesse.</p>' + 
       '<p><strong>Equipe CarTinder<strong></p>')
       $('.modal').modal('show');
@@ -563,7 +563,7 @@ function enviarEmailInteresseAPI(objectEmail){
       $("#divCorpo").hide();
       $("#buttonEnviar").hide();
       $('.modal-header').html('<h5 class="modal-title">Email enviado com sucesso.</h5>')
-      $('.modal-body').html('<p>Olá o responsavel pelo veiculo ira receber sua mensagem, e em breve irá entrar em contato.</p>' + 
+      $('.modal-body').html('<p>Olá o responsavel pelo veiculo ira receber sua mensagem e em breve irá entrar em contato.</p>' + 
       '<p>Desde já agradecemos o interesse.</p>' + 
       '<p><strong>Equipe CarTinder<strong></p>')
       $('.modal').modal('show');
