@@ -151,7 +151,7 @@ function buscaAnunciosFiltros(marca){
   $('#card-carro').show();
   /*
   $.ajax({
-    type: "POST",
+    type: "GET",
     contentType: "application/json",
     url: "http://localhost:8080/anuncio/filtros",
     data: JSON.stringify(filtros),

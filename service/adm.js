@@ -72,10 +72,10 @@ function populaTabela(data){
         '<td>' + data[i].modelo  + '</td>' +
         '<td id="money">' + data[i].preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td>' +
         '<td id="editar" onclick="editaData(' + data[i].idAnuncio + ')">' +
-          '<img src="/images/adm/edit.png" class="content-editable">' + 
+          '<img src="edit.png" class="content-editable">' + 
         '</td>' +
         '<td id="excluir" onclick="excluiData('+ data[i].idAnuncio   + ')">' +
-            '<img src="/images/adm/delete.png" class="content-editable">' + 
+            '<img src="delete.png" class="content-editable">' + 
         '</td>' + 
       '</tr>'
 
@@ -94,10 +94,10 @@ function populaTabelaCliente(data){
         '<td>' + data[i].nome  + '</td>' + 
         '<td>' + data[i].email  + '</td>' +
         '<td id="editar" onclick="editaDataCliente(' + data[i].idCliente + ')">' +
-          '<img src="/images/adm/edit.png" class="content-editable">' + 
+          '<img src="edit.png" class="content-editable">' + 
         '</td>' +
         '<td id="excluir" onclick="excluiDataCliente('+ data[i].idCliente   + ')">' +
-            '<img src="/images/adm/delete.png" class="content-editable">' + 
+            '<img src="delete.png" class="content-editable">' + 
         '</td>' + 
       '</tr>'
 
@@ -140,7 +140,7 @@ function editaData(id){
 function excluiData(idAnuncio){
  $.ajax({
     type: "DELETE",
-    url: "https://cartinder-backend.herokuapp.com/anuncio/id?idAnuncio=" + idAnuncio,
+    url: "https://cartinder-backend.herokuapp.com/anuncio/" + idAnuncio,
     success: function(data) {
       alert('Excluido com sucesso.');
       document.location.reload(true);
@@ -171,7 +171,7 @@ function editaDataCliente(id){
     },         
     success: function(data) {
      $("#divCorpo").hide();
-      criaModalCliente(data);
+      criaModalDataCliente(data);
       $('.modal').modal('show');
     },
     error: function() {
@@ -187,7 +187,7 @@ function editaDataCliente(id){
 function excluiDataCliente(idCliente){
  $.ajax({
     type: "DELETE",
-    url: "https://cartinder-backend.herokuapp.com/cliente/id?idCliente=" + idCliente,
+    url: "https://cartinder-backend.herokuapp.com/cliente/" +  idCliente,
     success: function(data) {
       alert('Excluido com sucesso.');
       document.location.reload(true);
@@ -203,59 +203,65 @@ function excluiDataCliente(idCliente){
 function criaModalData(data){
   console.log(data)
   $('.modal-header').html('<h5 class="modal-title" id="exampleModalLabel">' + 
-  'Identificador Anuncio: <strong>' + data.idAnuncio+ '</strong></h5>');
+  'Identificador Anuncio: <strong>' + data.idAnuncio+ '</strong></h5>' + 
+  '<input type="hidden" value="' +  data.idAnuncio + '" id="inputIdAnuncio">'
+  );
   $('#formModalBody').html('' +
       '<label>Marca</label>' + 
-      '<input type="text" class="form-control"  readonly="true" value="' + data.marca + '">' +
+      '<input type="text" class="form-control"  readonly="true" value="' + data.marca + '" id="inputMarca">' +
       '<label>Modelo</label>' + 
-      '<input type="text"  class="form-control" value="' + data.modelo + '">' +
+      '<input type="text"  class="form-control" value="' + data.modelo + '" id="inputModelo">' +
       '<div class="row">' + 
         '<div class="col">' + 
           '<label>Ano</label>' + 
-          '<input type="text"  class="form-control" value="' + data.ano + '">' + 
+          '<input type="text"  class="form-control" value="' + data.ano + '" id="inputAno">' + 
         '</div>' +
         '<div class="col">' + 
           '<label>Quilometragem</label>' + 
-          '<input type="text"  class="form-control" value="' + data.quilometragem + '">' + 
+          '<input type="text"  class="form-control" value="' + data.quilometragem + '" id="inputQuilometragem">' + 
         '</div>' +
       '</div>' +
       '<div class="row">' + 
         '<div class="col">' + 
           '<label>Câmbio</label>' + 
-          '<input type="text"  class="form-control" value="' + data.cambio + '">' + 
+          '<input type="text"  class="form-control" value="' + data.cambio + '" id="inputCambio">' + 
         '</div>' +
         '<div class="col">' + 
           '<label>Potencia do Motor</label>' + 
-          '<input type="text"  class="form-control" value="' + data.potenciaMotor + '">' + 
+          '<input type="text"  class="form-control" value="' + data.potenciaMotor + '" id="inputPotenciaMotor">' + 
         '</div>' +
       '</div>' + 
       '<div class="row">' + 
         '<div class="col">' + 
           '<label>Combustivel</label>' + 
-          '<input type="text"  class="form-control" value="' + data.combustivel + '">' + 
+          '<input type="text"  class="form-control" value="' + data.combustivel + '" id="inputCombustivel">' + 
         '</div>' +
         '<div class="col">' + 
           '<label>Direção</label>' + 
-          '<input type="text"  class="form-control" value="' + data.direcao + '">' + 
+          '<input type="text"  class="form-control" value="' + data.direcao + '" id="inputDirecao">' + 
         '</div>' +
       '</div>' +
       '<div class="row">' + 
         '<div class="col">' + 
           '<label>Qtd. Porta</label>' + 
-          '<input type="text"  class="form-control" value="' + data.portas + '">' + 
+          '<input type="text"  class="form-control" value="' + data.portas + '" id="inputPortas">' + 
         '</div>' +
         '<div class="col">' + 
           '<label>Cor</label>' + 
-          '<input type="text"  class="form-control" value="' + data.cor + '">' + 
+          '<input type="text"  class="form-control" value="' + data.cor + '" id="inputCor">' + 
         '</div>' +
       '</div>' + 
       '<label>Preço</label>' + 
-      '<input class="form-control" id="inputPreco" value="' + data.preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '">'
-  
+      '<input class="form-control" id="inputPreco" value="' + data.preco + '" id="inputPreco">'
   )
+  $('.modal-footer').html('' + 
+  '<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>' +
+  '<button type="button" class="btn btn-primary" onclick="atualizaAnuncio()">Salvar</button>'
+  )
+  $('#inputPotenciaMotor').mask('0.0');
 }
 
-function criaModalCliente(data){
+function criaModalDataCliente(data){
   $('.modal-header').html('<h5 class="modal-title" id="exampleModalLabel">' + 
   '<strong>Cadastro Cliente </strong></h5>');
   $('#formModalBody').html('' + 
@@ -279,11 +285,7 @@ function cadastroAnuncioModal(){
       '<label>Identificador Cliente</label>' + 
       '<input type="number" class="form-control" id="inputCliente">' +
       '<label>Marca</label>' + 
-        '<select class="custom-select" id="inputMarca">' + 
-          '<option value="BMW">BMW</option>' + 
-          '<option value="Ford">Ford</option>' + 
-          '<option value="Honda">Honda</option>' +
-        '</select>' +  
+      '<input type="text" class="form-control" id="inputMarca">' +
       '<label>Modelo</label>' + 
       '<input type="text"  class="form-control" id="inputModelo">' +
       '<div class="row">' + 
@@ -502,15 +504,16 @@ function cadastroCliente(){
 function atualizaCliente(){
 
   var objectCliente = {
-    idCliente: document.getElementById('inputIdCliente').value,
     nome: document.getElementById('inputNome').value,
     email: document.getElementById('inputEmail').value
   }
 
+  var idCliente = document.getElementById('inputIdCliente').value;
+
   $.ajax({
     type: "PUT",
     contentType: "application/json",
-    url: "https://cartinder-backend.herokuapp.com/cliente",
+    url: "https://cartinder-backend.herokuapp.com/cliente/" + idCliente,
     data: JSON.stringify(objectCliente),
     beforeSend: function () {
       //Aqui adicionas o loader
@@ -521,6 +524,51 @@ function atualizaCliente(){
              '<h1>Carregando......</h1>' + 
       '</div>'
       );
+    },
+    success: function(data) {
+      alert('Atualizado com sucesso.');
+      document.location.reload(true);
+    },
+    error: function(data) {
+      console.log('Erro');
+      console.log(data);
+    }
+  })
+}
+
+function atualizaAnuncio(){
+  var objectAnuncio = {
+    preco : document.getElementById('inputPreco').value,
+    modelo : document.getElementById('inputModelo').value,
+    marca : document.getElementById('inputMarca').value,
+    ano : document.getElementById('inputAno').value,
+    quilometragem : document.getElementById('inputQuilometragem').value,
+    potenciaMotor : document.getElementById('inputPotenciaMotor').value,
+    combustivel : document.getElementById('inputCombustivel').value,
+    cambio : document.getElementById('inputCambio').value,
+    direcao : document.getElementById('inputDirecao').value,
+    cor : document.getElementById('inputCor').value,
+    portas : document.getElementById('inputPortas').value,
+   } 
+
+   var idAnuncio = document.getElementById('inputIdAnuncio').value;
+   console.log(objectAnuncio)
+
+  $.ajax({
+    type: "PUT",
+    contentType: "application/json",
+    url: "https://cartinder-backend.herokuapp.com/anuncio/" + idAnuncio,
+    data: JSON.stringify(objectAnuncio),
+    beforeSend: function () {
+      //Aqui adicionas o loader
+      $(".modal-body").html('' + 
+         '<div class="text-center">' +
+            '<div class="spinner-border text-primary" role="status">' + 
+            '</div>' +
+             '<h1>Carregando......</h1>' + 
+      '</div>'
+      );
+      $('.modal-footer').hide();
     },
     success: function(data) {
       alert('Atualizado com sucesso.');
