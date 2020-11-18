@@ -72,10 +72,10 @@ function populaTabela(data){
         '<td>' + data[i].modelo  + '</td>' +
         '<td id="money">' + data[i].preco.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</td>' +
         '<td id="editar" onclick="editaData(' + data[i].idAnuncio + ')">' +
-          '<img src="edit.png" class="content-editable">' + 
+          '<img src="/images/adm/edit.png" class="content-editable">' + 
         '</td>' +
         '<td id="excluir" onclick="excluiData('+ data[i].idAnuncio   + ')">' +
-            '<img src="delete.png" class="content-editable">' + 
+            '<img src="/images/adm/delete.png" class="content-editable">' + 
         '</td>' + 
       '</tr>'
 
@@ -94,10 +94,10 @@ function populaTabelaCliente(data){
         '<td>' + data[i].nome  + '</td>' + 
         '<td>' + data[i].email  + '</td>' +
         '<td id="editar" onclick="editaDataCliente(' + data[i].idCliente + ')">' +
-          '<img src="edit.png" class="content-editable">' + 
+          '<img src="/images/adm/edit.png" class="content-editable">' + 
         '</td>' +
         '<td id="excluir" onclick="excluiDataCliente('+ data[i].idCliente   + ')">' +
-            '<img src="delete.png" class="content-editable">' + 
+            '<img src="/images/adm/delete.png" class="content-editable">' + 
         '</td>' + 
       '</tr>'
 
@@ -285,7 +285,11 @@ function cadastroAnuncioModal(){
       '<label>Identificador Cliente</label>' + 
       '<input type="number" class="form-control" id="inputCliente">' +
       '<label>Marca</label>' + 
-      '<input type="text" class="form-control" id="inputMarca">' +
+        '<select class="custom-select" id="inputMarca">' +
+          '<option value="BMW">BMW</option>' +
+          '<option value="Honda">Honda</option>' +
+          '<option value="Ford">Ford</option>' +
+        '</select>' +
       '<label>Modelo</label>' + 
       '<input type="text"  class="form-control" id="inputModelo">' +
       '<div class="row">' + 
@@ -354,8 +358,8 @@ function cadastroAnuncioModal(){
       '</div>' 
   )
   $('.modal-footer').html('' + 
-    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
-    '<button type="button" class="btn btn-primary" onclick="cadastroAnuncio()">Save changes</button>'
+    '<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>' +
+    '<button type="button" class="btn btn-primary" onclick="cadastroAnuncio()">Salvar</button>'
   )
 
   //$('#inputPreco').mask('#.##0,00', {reverse: true});
@@ -398,8 +402,16 @@ async function cadastroAnuncio(){
    foto: ''
   } 
 
+  if(objectAnuncio.id_cliente == null || objectAnuncio.id_cliente == ""){
+    alert('Preencha o campo  "Identificador Cliente".');
+  }else{
+
   //Salvando a foto no Imgur ---------------------------------------------------
   var foto = $("#inputFoto")[0].files;
+
+  if(foto[0] == null){
+    alert('É obrigatorio enviar uma foto.');
+  }else{
 
   var formData = new FormData();
 
@@ -463,7 +475,9 @@ async function cadastroAnuncio(){
       console.log(data);
     }
   })
+  }
   //----------------------------------------------------------------------------
+  }
 
   console.log(objectAnuncio);
 }
